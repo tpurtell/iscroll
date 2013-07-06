@@ -126,18 +126,6 @@
 
 		this.refresh();		// update boundaries
 
-		if ( x > 0 ) {
-			x = 0;
-		} else if ( x < this.maxScrollX ) {
-			x = this.maxScrollX;
-		}
-
-		if ( y > 0 ) {
-			y = 0;
-		} else if ( y < this.maxScrollY ) {
-			y = this.maxScrollY;
-		}
-
 		this.scrollTo(x, y, time);
 	},
 
@@ -145,6 +133,7 @@
 		var wheelDeltaY,
 			deltaScale;
 
+		this._execEvent('zoomStart');
 		if ('wheelDeltaX' in e) {
 			wheelDeltaY = e.wheelDeltaY / Math.abs(e.wheelDeltaY);
 		} else if('wheelDelta' in e) {
@@ -158,4 +147,5 @@
 		deltaScale = this.scale + wheelDeltaY / 5;
 
 		this.zoom(deltaScale, e.pageX, e.pageY, 0);
+		this._execEvent('zoomEnd');
 	},
