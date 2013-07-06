@@ -51,6 +51,20 @@ var releases = {
 			'indicator/indicator.js'
 		],
 		postProcessing: [ 'zoom/build.json', 'indicator/build.json', 'wheel/build.json', 'snap/build.json', 'keys/build.json' ]
+	},
+  
+ 	zp: {
+		files: [
+			'indicator/_initIndicators.js',
+			'zoom/zoom.js',
+			'wheel/wheel.js',
+			'snap/snap.js',
+			'keys/keys.js',
+			'probe/_animate.js',
+			'zoom/handleEvent.js',
+			'indicator/indicator.js'
+		],
+		postProcessing: [ 'zoom/build.json', 'indicator/build.json', 'wheel/build.json', 'snap/build.json', 'keys/build.json', 'probe/build.json' ]
 	}
 
 	// Additional releases TBD
@@ -63,7 +77,7 @@ if ( !args.length ) {
 }
 
 if ( args[0] == 'dist' ) {
-	args = ['lite', 'iscroll', 'zoom', 'probe'];
+	args = ['lite', 'iscroll', 'zoom', 'probe', 'zp'];
 }
 
 // Get the list of files
